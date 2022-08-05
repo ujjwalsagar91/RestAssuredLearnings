@@ -1,7 +1,5 @@
 package com.test;
 
-import com.fasterxml.jackson.annotation.*;
-
 public class AddressPOJO {
 	
 	private String stateName;

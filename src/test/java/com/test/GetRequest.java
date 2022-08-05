@@ -1,10 +1,14 @@
 package com.test;
 
+import static io.restassured.RestAssured.given;
+
+import java.util.List;
+
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.*;
 
 public class GetRequest {
 	
@@ -15,6 +19,11 @@ public class GetRequest {
 		System.out.println(response.prettyPrint());
 		System.out.println(response.statusCode());
 		System.out.println(response.headers());
+		
+		response.then().body("data", Matchers.instanceOf(List.class));
+		
+		String test = "abc";
+		MatcherAssert.assertThat("abc", equals(test));
 		
 	}
 

@@ -1,11 +1,8 @@
 package com.test;
 
-import java.util.regex.Matcher;
-
 import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
-
-import com.fasterxml.jackson.databind.jsonschema.JsonSchema;
 
 import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidator;
@@ -25,7 +22,7 @@ public class RandomTest {
 		.basePath("/api/users")
 		.header("Conten-Type", "application/json")
 		.body("{\r\n"
-				+ "    \"name\": \"morpheus\",\r\n"
+				+ "    \"name\": \"morpheus12\",\r\n"
 				+ "    \"job\": \"leader\"\r\n"
 				+ "}")
 		.when()
@@ -34,6 +31,7 @@ public class RandomTest {
 			.log()
 			.all()
 			.statusCode(201)
+			.body("createdAt", Matchers.matchesRegex("[a-zA-Z0-9\\:\\-\\.]*"))
 			.extract().asPrettyString();
 		
 		JsonPath js = new JsonPath(res);

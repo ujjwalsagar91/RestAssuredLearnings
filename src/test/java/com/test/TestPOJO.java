@@ -32,6 +32,5 @@ public class TestPOJO {
 		EmployeePOJOWithLombok emp2 = res.as(EmployeePOJOWithLombok.class);
 		System.out.println(emp2);
 		System.out.println(emp1.getName());
-		
 	}
 }

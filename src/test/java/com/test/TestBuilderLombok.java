@@ -10,7 +10,7 @@ public class TestBuilderLombok {
 	public void testBuilder() {
 		
 		
-		EmployeePOJOWithLombok emp = EmployeePOJOWithLombok.builder().id("2").build();
+		EmployeePOJOWithLombok emp = EmployeePOJOWithLombok.builder().setId("2").build();
 	}
 
 }

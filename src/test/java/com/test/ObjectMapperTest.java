@@ -53,6 +53,8 @@ public class ObjectMapperTest {
 		
 		objMap.readValue(s, new TypeReference<Map<String, String>>(){});
 		
+		objMap.readValue(s, EmployeePOJO.class);
+		
 	}
 
 }
